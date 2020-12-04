@@ -1844,7 +1844,7 @@ pub(crate) fn is_nonoverlapping<T>(src: *const T, dst: *const T, count: usize) -
 #[inline]
 pub const unsafe fn copy_nonoverlapping<T>(src: *const T, dst: *mut T, count: usize) {
     extern "rust-intrinsic" {
-        #[rustc_const_unstable(feature = "const_copy", issue = "none")]
+        #[rustc_const_unstable(feature = "const_intrinsic_copy", issue = "none")]
         fn copy_nonoverlapping<T>(src: *const T, dst: *mut T, count: usize);
     }
 
@@ -1929,10 +1929,10 @@ pub const unsafe fn copy_nonoverlapping<T>(src: *const T, dst: *mut T, count: us
 #[inline]
 pub const unsafe fn copy<T>(src: *const T, dst: *mut T, count: usize) {
     extern "rust-intrinsic" {
-        #[rustc_const_unstable(feature = "const_copy", issue = "none")]
+        #[rustc_const_unstable(feature = "const_intrinsic_copy", issue = "none")]
         fn copy<T>(src: *const T, dst: *mut T, count: usize);
     }
-    
+
     // FIXME: Is it possible to make this work in const fn?
     /*if cfg!(debug_assertions) && !(is_aligned_and_not_null(src) && is_aligned_and_not_null(dst)) {
         // Not panicking to keep codegen impact smaller.
