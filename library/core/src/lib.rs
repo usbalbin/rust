@@ -100,6 +100,7 @@
 #![feature(const_size_of_val)]
 #![feature(const_swap)]
 #![feature(const_align_of_val)]
+#![feature(const_trait_impl)]
 #![feature(const_type_id)]
 #![feature(const_type_name)]
 #![feature(const_likely)]
