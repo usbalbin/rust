@@ -27,6 +27,7 @@ mod u64;
 mod u8;
 
 mod bignum;
+mod const_from;
 mod dec2flt;
 mod flt2dec;
 mod ops;
