@@ -1627,7 +1627,8 @@ impl<A, E, V: FromIterator<A>> FromIterator<Result<A, E>> for Result<V, E> {
 }
 
 #[unstable(feature = "try_trait_v2", issue = "84277")]
-impl<T, E> ops::TryV2 for Result<T, E> {
+#[rustc_const_unstable(feature = "const_identity_convert", issue = "none")]
+impl<T, E> const ops::TryV2 for Result<T, E> {
     type Output = T;
     type Residual = Result<convert::Infallible, E>;
 
