@@ -530,8 +530,8 @@ where
 
 // From implies Into
 #[stable(feature = "rust1", since = "1.0.0")]
-#[rustc_const_unstable(feature = "const_identity_convert", issue = "none")]
-impl<T, U> const Into<U> for T
+// FIXME constify this too
+impl<T, U> Into<U> for T
 where
     U: From<T>,
 {
