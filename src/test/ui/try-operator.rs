@@ -127,17 +127,6 @@ fn tight_binding() -> Result<bool, ()> {
     Ok(!x?)
 }
 
-fn in_const_fn() -> Result<bool, ()> {
-    const fn foo() -> Result<bool, ()> {
-        Err(())?;
-        Ok(true)
-    }
-
-    const FOO = foo();
-
-    FOO
-}
-
 // just type check
 fn merge_error() -> Result<i32, Error> {
     let mut s = String::new();
@@ -183,8 +172,6 @@ fn main() {
     assert_eq!(Ok(29), on_match());
 
     assert_eq!(Ok(false), tight_binding());
-
-    assert_eq!(Err(()), in_const_fn());
 }
 
 enum Error {
